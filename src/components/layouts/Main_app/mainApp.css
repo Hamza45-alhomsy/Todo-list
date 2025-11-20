@@ -1,0 +1,116 @@
+/* Add font files for Darumadrop One */
+@font-face {
+  font-family: "Darumadrop One";
+  src:
+    url("fonts/darumadrop-one.woff2") format("woff2"),
+    url("fonts/darumadrop-one.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --font-family-darumadrop-one: "Darumadrop One", sans-serif;
+  --font-family-poppins: "Poppins", sans-serif;
+  --text-white: rgba(255, 255, 255, 1);
+}
+
+.text-white {
+  color: var(--text-white);
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+  height: 100vh; /* full screen height */
+  margin: 0;
+  background-color: rgb(102, 68, 255);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.checkmark-2 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  width: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-3 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-darumadrop-one);
+  font-weight: normal;
+  font-size: 36px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-white);
+}
+
+.text-4 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-poppins);
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-white);
+}
+
+.app-1 {
+  @media (max-width: 1440px) {
+    .app-1 {
+      padding-left: 24px;
+      padding-right: 24px;
+      width: 800px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .app-1 {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border-radius: 10px;
+}
+
+/* Center the main content (checkmark + text) in the middle of the viewport */
+.app-1 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center; /* horizontal centering */
+  gap: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Make the checkmark a reasonable fixed size and ensure it centers */
+.checkmark-2 {
+  width: 250px;
+  max-width: 40%;
+  height: auto;
+  display: block;
+}

@@ -1,4 +1,7 @@
 # Logs
+# .gitignore
+.env.local
+
 logs
 *.log
 npm-debug.log*
