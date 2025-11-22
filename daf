@@ -1,0 +1,26 @@
+[33mcommit a932090db9583f820e54dcb335b3165ee5550d42[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmain[m[33m)[m
+Author: Hamza <hamza45alhomsy@gmail.com>
+Date:   Sat Oct 18 00:44:56 2025 +0300
+
+    I changed App.jsx
+
+[33mcommit 000777d47e0ac119371be7de63c17b9e79c75656[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 140d418 ee939b4
+Author: Hamza <hamza45alhomsy@gmail.com>
+Date:   Sat Oct 18 00:33:22 2025 +0300
+
+    Merge pull request #1 from Hamza45-alhomsy/master
+    
+    The first commit for all files in todo-list
+
+[33mcommit ee939b4cfd7a763e19fa161fc51517e58ec24856[m[33m ([m[1;32mdev[m[33m)[m
+Author: Hamza <hamza45alhomsy@gmail.com>
+Date:   Sat Oct 18 00:08:25 2025 +0300
+
+    The first commit for all files in todo-list
+
+[33mcommit 140d41839ce69d6dc11d8b3dd249db10611488e3[m
+Author: Hamza <hamza45alhomsy@gmail.com>
+Date:   Sat Oct 18 00:12:42 2025 +0300
+
+    Initial commit

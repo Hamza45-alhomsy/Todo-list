@@ -1,0 +1,173 @@
+.home-page {
+  width: 100%;
+  max-width: 420px; /* Mobile default */
+  margin: auto;
+  padding: 16px;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: "Poppins", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 12px;
+}
+
+/* Widen for larger screens */
+@media (min-width: 768px) {
+  .home-page {
+    max-width: 600px;
+    padding: 32px;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-page {
+    max-width: 800px;
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.user-info {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.email {
+  font-size: 0.85rem;
+  color: #dcdcdc;
+}
+
+.bell-container {
+  position: relative;
+}
+
+.bell {
+  width: 26px;
+  height: 26px;
+}
+
+.notif {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Section Titles */
+.section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Group Tasks */
+.task-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.task-card {
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-card.white {
+  background: white;
+  color: black;
+  flex: 1;
+}
+
+.task-card.blue {
+  background: #1a9fff;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.task-card.green {
+  background: #e9f7ec;
+  color: black;
+  margin-bottom: 8px;
+}
+
+/* Text */
+.task-title {
+  font-weight: 600;
+  margin: 0;
+}
+
+.task-time {
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Icons */
+.arrow,
+.check {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1); /* Make icons white */
+}
+
+/* Override arrow in green cards (black bg) */
+.task-card.green .arrow {
+  filter: none;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.avatars img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-right: -6px;
+  border: 2px solid white;
+}
+
+/* Tabs bar */
+.tabs-bar {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}

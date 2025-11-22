@@ -1,0 +1,258 @@
+:root {
+  --bg: #05243e;
+  --card: rgba(5, 36, 62, 1);
+  --muted-white: rgba(255, 255, 255, 0.85);
+  --muted-white-2: rgba(255, 255, 255, 0.25);
+  --accent-green: #49ea80;
+  --accent-red: #e76666;
+  --accent-yellow: #ffd66b;
+  --font: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Root layout */
+.task-details-root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0b2a45 0%, #05243e 100%);
+  color: var(--muted-white);
+  font-family: var(--font);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.td-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.td-title-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.td-task-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--muted-white);
+}
+
+.td-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-white);
+  opacity: 0.9;
+}
+
+.td-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted-white);
+  opacity: 0.9;
+}
+
+.td-time-icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(1.1);
+}
+
+/* top right small action icons */
+.td-actions {
+  display: flex;
+  gap: 8px;
+}
+.icon-btn {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.icon-btn img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.95;
+}
+
+/* Body */
+.td-body {
+  background: transparent;
+  border-radius: 12px;
+  padding: 6px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.td-description {
+  color: var(--muted-white);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* Divider */
+.td-divider {
+  width: 100%;
+  height: 1px;
+  opacity: 0.35;
+  filter: grayscale(100%);
+}
+
+/* Action cards row */
+.td-actions-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0 24px;
+}
+
+.td-action-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  color: var(--muted-white);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.td-action-card img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.td-action-card.done img {
+  filter: none;
+}
+.td-action-card.delete img {
+  filter: none;
+}
+.td-action-card.pin img {
+  filter: none;
+}
+
+/* Specific colors for icons (keeps images untouched; use svg fill if using inline svgs) */
+.td-action-card.done {
+  --icon-color: var(--accent-green);
+}
+.td-action-card.delete {
+  --icon-color: var(--accent-red);
+}
+.td-action-card.pin {
+  --icon-color: var(--accent-yellow);
+}
+
+/* Bottom nav */
+.td-bottom-nav {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  height: 64px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 10px 30px rgba(3, 9, 16, 0.6);
+  padding: 8px 12px;
+  z-index: 40;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-btn img {
+  width: 26px;
+  height: 26px;
+  opacity: 0.95;
+}
+.nav-btn.active img {
+  filter: brightness(1.3);
+}
+.active-line {
+  position: absolute;
+  bottom: -8px;
+  width: 38px;
+  height: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .task-details-root {
+    padding: 18px;
+  }
+  .td-actions-row {
+    gap: 8px;
+  }
+  .td-action-card {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .td-bottom-nav {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    height: 62px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .task-details-root {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
