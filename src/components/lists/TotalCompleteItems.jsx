@@ -5,9 +5,14 @@ const TotalCompleteItems = () => {
     state.todos.items.filter((todo) => todo.completed === true)
   );
 
+  const totalTodos = useSelector((state) => state.todos.items.length);
+
   return (
-    <div className="mt-3">
-      <h4>Total Complete Items: {completeTodos.length}</h4>
+    <div className="mt-3 p-3 bg-light rounded">
+      <h4>Task Summary</h4>
+      <p>Total Tasks: {totalTodos}</p>
+      <p>Completed: {completeTodos.length}</p>
+      <p>Remaining: {totalTodos - completeTodos.length}</p>
     </div>
   );
 };
