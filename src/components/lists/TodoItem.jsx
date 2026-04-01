@@ -1,47 +1,47 @@
 import { useDispatch } from "react-redux";
 import { deleteTodoAsync, updateTodoAsync } from "../../redux/slices/todoSlice";
-import { db } from "../../firebase/firebase";
-import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { useAuth } from "../../hooks/useAuth"; // Fixed import
-
+import { useAuth } from "../../hooks/useAuth";
+import { deleteToDo, updateToDo } from "./helpers";
+import { useState } from "react";
+import "./todolist.css";
 // eslint-disable-next-line react/prop-types
 const TodoItem = ({ id, title, completed }) => {
   const dispatch = useDispatch();
   const { currentUser } = useAuth();
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [isUpdatingD, setIsUpdatingD] = useState(false);
 
   const handleCheckboxClick = async () => {
-    try {
-      // Update in Firebase
-      if (currentUser) {
-        await updateDoc(doc(db, "todos", id), {
-          // Fixed collection name
-          completed: !completed,
-        });
-      }
+    if (isUpdating) return;
+    setIsUpdating(true);
 
-      // Update in Redux
+    try {
       dispatch(
         updateTodoAsync({
           id,
           completed: !completed,
-        })
+        }),
       );
+      if (currentUser) await updateToDo(id, { completed: !completed });
     } catch (error) {
       console.error("Error updating task: ", error);
+    } finally {
+      setIsUpdating(false);
     }
   };
 
   const handleDeleteClick = async () => {
-    try {
-      // Delete from Firebase
-      if (currentUser) {
-        await deleteDoc(doc(db, "todos", id)); // Fixed collection name
-      }
+    if (isUpdatingD) return;
+    setIsUpdatingD(true);
 
-      // Delete from Redux
+    try {
       dispatch(deleteTodoAsync({ id }));
+
+      if (currentUser) await deleteToDo(id);
     } catch (error) {
       console.error("Error deleting task: ", error);
+    } finally {
+      setIsUpdatingD(false);
     }
   };
 
@@ -53,9 +53,9 @@ const TodoItem = ({ id, title, completed }) => {
         <div className="d-flex align-items-center flex-grow-1">
           <input
             type="checkbox"
-            className="form-check-input me-3"
             checked={completed}
             onChange={handleCheckboxClick}
+            disabled={isUpdating}
             id={`todo-${id}`}
           />
           <label
@@ -65,6 +65,11 @@ const TodoItem = ({ id, title, completed }) => {
           >
             {title}
           </label>
+
+          <span className={` ${isUpdating ? "loader" : ""}`}>
+            {" "}
+            &nbsp;&nbsp;&nbsp;
+          </span>
         </div>
         <button
           className="btn btn-danger btn-sm ms-2"
@@ -72,7 +77,11 @@ const TodoItem = ({ id, title, completed }) => {
           aria-label={`Delete todo: ${title}`}
         >
           Delete
-        </button>
+        </button>{" "}
+        <span className={` ${isUpdatingD ? "loader" : ""}`}>
+          {" "}
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
       </div>
     </li>
   );

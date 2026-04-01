@@ -15,21 +15,22 @@ function LogIn() {
   const [password, setPassword] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    if (!isSigningIn) {
+
+  const onSubmit = async () => {
+    try {
       setIsSigningIn(true);
-      try {
-        await doSignInWithEmailAndPassword(email, password);
-        setIsSigningIn(false);
-        navigate("/home");
-      } catch (error) {
-        console.error("Sign-in error:", error);
-        setErrorMessage(error.message);
-        setIsSigningIn(false); // ✅ Reset after failure
-      }
+
+      await doSignInWithEmailAndPassword(email, password);
+
+      navigate("/home");
+    } catch (error) {
+      console.error("Sign-in error:", error);
+      setErrorMessage(error.message);
+    } finally {
+      setIsSigningIn(false);
     }
   };
+
   const onGoogleSignIn = async (e) => {
     e.preventDefault();
     if (!isSigningIn) {
@@ -44,6 +45,7 @@ function LogIn() {
       setIsSigningIn(false);
     }
   };
+
   return (
     <div className="sign-up-page-1">
       {userLoggedIn && <Navigate to={"/home"} replace={true} />}

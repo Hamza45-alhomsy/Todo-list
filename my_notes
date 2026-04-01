@@ -1,0 +1,11 @@
+bun pm untrusted v1.3.8 (b64edcb4)
+
+.\node_modules\@firebase\util @1.14.0
+» [postinstall]: node ./postinstall.js
+
+.\node_modules\protobufjs @7.5.4
+» [postinstall]: node scripts/postinstall
+
+These dependencies had their lifecycle scripts blocked during install.
+
+If you trust them and wish to run their scripts, use `bun pm trust`.
