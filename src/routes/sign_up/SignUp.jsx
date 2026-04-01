@@ -1,11 +1,11 @@
 import {
   doCreateUserWithEmailAndPassword,
   doSignInWithGoogle,
-} from "../../firebase/auth";
-import "./signUp.css";
+} from "../../firebase/auth"; ////
+import "./signUp.css"; ////
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/useAuth"; ////
 
 function SignUp() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
-  const [isSigningUp, setIsSigningUp] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false); ////
   const [errorMessage, setErrorMessage] = useState("");
   const [isSigningInWithGoogle, setIsSigningInWithGoogle] = useState(false);
   const onSubmit = async (e) => {
@@ -30,7 +30,7 @@ function SignUp() {
         setIsSigningUp(false); // ✅ Reset after failure
       }
     }
-  };
+  }; ////
   const onGoogleSignIn = async (e) => {
     e.preventDefault();
     if (!isSigningUp) {

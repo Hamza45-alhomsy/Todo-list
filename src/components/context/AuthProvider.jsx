@@ -41,7 +41,7 @@ export function AuthProvider({ children }) {
     signup,
     logout,
     loading,
-    userLoggedIn: !!currentUser, // Add this for your login component
+    userLoggedIn: currentUser, // Add this for your login component
   };
 
   return (

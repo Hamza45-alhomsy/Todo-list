@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 import { getTodosAsync } from "../../redux/slices/todoSlice";
 import TodoItem from "./TodoItem";
 import { useAuth } from "../../hooks/useAuth"; // Fixed import
-
-const TodoList = () => {
+import "./todolist.css";
+const TodoList = ({ children }) => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { currentUser, userLoggedIn } = useAuth(); // Added userLoggedIn
 
   const todos = useSelector((state) => state.todos.items);
@@ -30,10 +32,7 @@ const TodoList = () => {
   if (loading) {
     return (
       <div className="alert alert-info text-center">
-        <div
-          className="spinner-border spinner-border-sm me-2"
-          role="status"
-        ></div>
+        <div className="loader" role="status"></div>
         Loading your tasks...
       </div>
     );
@@ -57,7 +56,7 @@ const TodoList = () => {
   }
 
   return (
-    <div className="mt-4">
+    <div style={{ flex: 1, overflowY: "auto" }} className="mt-4">
       <h4>Your Tasks ({todos.length})</h4>
       <ul className="list-group">
         {todos.map((todo) => (
@@ -69,8 +68,14 @@ const TodoList = () => {
           />
         ))}
       </ul>
+      <br />
+      {children}
     </div>
   );
+};
+
+TodoList.propTypes = {
+  children: PropTypes.node,
 };
 
 export default TodoList;

@@ -42,7 +42,7 @@ export const getTodosAsync = createAsyncThunk(
       console.error("Error fetching todos:", error);
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const addTodoAsync = createAsyncThunk(
@@ -80,7 +80,7 @@ export const addTodoAsync = createAsyncThunk(
       console.error("Error adding todo:", error);
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updateTodoAsync = createAsyncThunk(
@@ -104,7 +104,7 @@ export const updateTodoAsync = createAsyncThunk(
       console.error("Error updating todo:", error);
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const deleteTodoAsync = createAsyncThunk(
@@ -123,9 +123,8 @@ export const deleteTodoAsync = createAsyncThunk(
       console.error("Error deleting todo:", error);
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
-
 const todoSlice = createSlice({
   name: "todos",
   initialState: {
@@ -196,7 +195,7 @@ const todoSlice = createSlice({
       })
       .addCase(deleteTodoAsync.fulfilled, (state, action) => {
         state.items = state.items.filter(
-          (todo) => todo.id !== action.payload.id
+          (todo) => todo.id !== action.payload.id,
         );
       })
       .addCase(deleteTodoAsync.rejected, (state, action) => {
