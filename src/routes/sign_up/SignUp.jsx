@@ -123,7 +123,7 @@ function SignUp() {
         </button>
       </div>
       <p className="text-13">
-        <Link to={"/Log_in"} className="hover:underline font-bold">
+        <Link to={"/login"} className="hover:underline font-bold">
           <span className="text-rgb-99-217-243">
             Already have an account? Log in
           </span>

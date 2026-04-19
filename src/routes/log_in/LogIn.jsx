@@ -97,7 +97,7 @@ function LogIn() {
 
       <p>
         Don&apos;t have an account?{" "}
-        <Link style={{ color: "#0EA5E9" }} to={"/sign_up"}>
+        <Link style={{ color: "#0EA5E9" }} to={"/signup"}>
           Sign up
         </Link>
       </p>
